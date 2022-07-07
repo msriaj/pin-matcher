@@ -12,7 +12,7 @@ body {
 }
 
 .half-width {
-    height: 570px;
+    height: 700px;
     background: #222436;
     padding: 30px;
     text-align: center;
@@ -100,14 +100,15 @@ input[type='text']:focus {
     color: #fff;
     text-align: center;
     margin: 0 auto;
-    background: #222436;
+    background: #4e4f5a;
     margin-top: 20px;
     border-radius: 15px;
     padding: 5px 20px;
+    margin-bottom: 30px;
 }
 
 .notify-section {
-    width: 35%;
+
     margin: 0 auto;
 }
 

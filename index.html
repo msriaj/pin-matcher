@@ -21,6 +21,10 @@
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
+                    <div class="notify-section">
+                        <p id="notMatched" class="notify">❌ Pin Didn't Match, Please try again</p>
+                        <p id="matched" class="notify">✅ Pin Matched... Secret door is opening for you</p>
+                    </div>
                     <input class="form-control" id="inputNumber" type="text">
                     <div class="numbers">
                         <div class="calc-body">
@@ -45,17 +49,15 @@
                                 <div class="button" onclick="clearInput()">C</div>
                             </div>
                             <div>
-                                <button type="submit" onclick="matchingNum()" class="submit-btn">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <button type="submit" onclick="matchingNum()" id="submitBtn"
+                                    class="submit-btn">Submit</button>
+                                <p class="action-left"><span id="counter">3</span> try left</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="notify-section">
-                <p id="notMatched" class="notify">❌ Pin Didn't Match, Please try again</p>
-                <p id="matched" class="notify">✅ Pin Matched... Secret door is opening for you</p>
-            </div>
+
         </div>
         <script>
 
@@ -89,10 +91,33 @@
                 if (intNumber == intNumber2) {
                     document.getElementById("matched").style.display = "block";
                     document.getElementById("notMatched").style.display = "none";
+
+
+
+                    // counter 
+
+                    document.getElementById("counter").innerText = 3;
+
+
                 }
                 else {
                     document.getElementById("notMatched").style.display = "block";
                     document.getElementById("matched").style.display = "none";
+
+
+                    // counter 
+                    const counter = document.getElementById("counter").innerText;
+                    let counterNumber = parseInt(counter);
+                    console.log(counterNumber - 1)
+                    if (counterNumber > 0) {
+                        const newCounter = counterNumber - 1
+                        console.log(newCounter);
+                        document.getElementById("counter").innerText = newCounter;
+                    }
+                    else {
+                        document.getElementById("submitBtn").style.display = "none";
+                    }
+
                 }
             }
             function clearInput() {
