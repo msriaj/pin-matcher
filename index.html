@@ -42,7 +42,7 @@
                             <div class="calc-button-row">
                                 <div class="button" onclick="backSpace()">&lt;</div>
                                 <div class="button" onclick="inputNumber('0')" id="ziro">0</div>
-                                <div class="button">C</div>
+                                <div class="button" onclick="clearInput()">C</div>
                             </div>
                             <div>
                                 <button type="submit" onclick="matchingNum()" class="submit-btn">Submit</button>
@@ -73,25 +73,30 @@
                 }
             }
 
-            let inputNumbers = document.getElementById("inputNumber").value;
 
             function backSpace() {
-
-                const backNow = inputNumbers.replace(/\d$/, '');;
+                const inputNum = document.getElementById("inputNumber").value;
+                const backNow = inputNum.replace(/\d$/, '');;
                 document.getElementById("inputNumber").value = backNow;
             }
 
 
             function matchingNum() {
+                const inputNumbers = document.getElementById("inputNumber").value;
                 const generatedNumbers = document.getElementById('generatedNumber').value;
                 const intNumber = parseInt(inputNumbers);
                 const intNumber2 = parseInt(generatedNumbers);
                 if (intNumber == intNumber2) {
-                    document.getElementById("matched").style.display = "block"
+                    document.getElementById("matched").style.display = "block";
+                    document.getElementById("notMatched").style.display = "none";
                 }
                 else {
-                    document.getElementById("notMatched").style.display = "block"
+                    document.getElementById("notMatched").style.display = "block";
+                    document.getElementById("matched").style.display = "none";
                 }
+            }
+            function clearInput() {
+                document.getElementById("inputNumber").value = ""
             }
 
         </script>
