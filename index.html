@@ -110,16 +110,18 @@
                     let counterNumber = parseInt(counter);
                     console.log(counterNumber - 1)
                     if (counterNumber > 0) {
-                        const newCounter = counterNumber - 1
-                        console.log(newCounter);
+                        const newCounter = counterNumber - 1;
+
+                        if(newCounter === 0) {
+					document.getElementById("submitBtn").style.display="none";
+				}
                         document.getElementById("counter").innerText = newCounter;
                     }
-                    else {
-                        document.getElementById("submitBtn").style.display = "none";
-                    }
+                    
 
                 }
             }
+
             function clearInput() {
                 document.getElementById("inputNumber").value = ""
             }
